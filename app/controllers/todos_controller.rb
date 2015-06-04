@@ -31,7 +31,7 @@ class TodosController < ApplicationController
   end
     
     def complete #if checked then each thing that is checked is striked through
-     params[:todos_checkbox].each do |check|
+     params[:todo].each do |check|
        todo_id = check
 	   t = Todo.find_by_id(todo_id)
        t.update_attribute(:completed, !t.completed)

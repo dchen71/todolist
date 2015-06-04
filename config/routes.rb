@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "todos/delete",to: "todos#delete", :as => :delete
   post "todos/add" => "todos#add", :via => :post 
-  get 'todos/complete' => 'todos#complete', :via => :post 
+  post 'todos/complete' => 'todos#complete', :via => :post 
   root 'todos#index' 
   
   # The priority is based upon order of creation: first created -> highest priority.
