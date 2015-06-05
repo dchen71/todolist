@@ -3,13 +3,16 @@
 		<div class="span4">
 			<h1>Shared Todo App</h1>
 			<hr>
-			<p>Input todo List here</p>
-			
+			<p>Input new to do Item Here here</p>
+
 			<%= form_for @new_todo, :url => {:action => "add"} do |f| %> <!-- Add button -->
 				<%= f.text_field :todo_item %>
 				<%= f.submit "Add todo", class: "btn btn-primary" %>
 			<% end %>
+			<hr>
       
+			<!-- Setup the insides of the flash to be partials and figure out how to pass the flash type in -->
+
 			<% if !flash[:error].nil? %> <!-- Error popup for entering blank data -->
 				<div class="alert alert-error">
 					<button type="button" class="close" data-dismiss="alert" >×</button>
@@ -32,6 +35,7 @@
 					<% else %>
 					<li> <%= check_box_tag  "todos_checkbox[]",t.id %> <%= t.todo_item %>  </li>
 					<% end %>
+					<%= link_to "Delete Todo", delete_path, method: :delete, data: {confirm:"Confirm deletion?"} %>
 				<%end%>
 			</ul>
 			<%= submit_tag("Toggle Todos", :class=>"btn btn-success") %>

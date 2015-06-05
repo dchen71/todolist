@@ -7,7 +7,9 @@ class TodosController < ApplicationController
   end
   
   def delete #deletes the last item
-    @todo_items = Todo.last.delete
+    @todo_items = Todo.find_by(id: params[:id])
+    @todo_items.destroy
+    flash[:success] = "Todo successfully deleted"
   end
 
 #Try to delete entry by taking advantage of the complete structure
@@ -31,7 +33,7 @@ class TodosController < ApplicationController
   end
     
     def complete #if checked then each thing that is checked is striked through
-     params[:todo].each do |check|
+     params[:todos_checkbox].each do |check|
        todo_id = check
 	   t = Todo.find_by_id(todo_id)
        t.update_attribute(:completed, !t.completed)
