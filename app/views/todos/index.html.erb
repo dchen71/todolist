@@ -3,7 +3,7 @@
 		<div class="span4">
 			<h1>Shared Todo App</h1>
 			<hr>
-			<p>Input new to do Item Here here</p>
+			<p>Input new to do item here</p>
 
 			<%= form_for @new_todo, :url => {:action => "add"} do |f| %> <!-- Add button -->
 				<%= f.text_field :todo_item %>
@@ -35,17 +35,14 @@
 					<% else %>
 					<li> <%= check_box_tag  "todos_checkbox[]",t.id %> <%= t.todo_item %>  </li>
 					<% end %>
-					<%= link_to "Delete Todo", delete_path, method: :delete, data: {confirm:"Confirm deletion?"} %>
+					<%= link_to "Delete", delete_path(:id => t.id), method: :delete, data: {confirm:"Confirm deletion?"} %>
 				<%end%>
 			</ul>
 			<%= submit_tag("Toggle Todos", :class=>"btn btn-success") %>
-			<!-- Will have to modify this loop in order to delete by selected and do add a success -->
-			<!-- <%= submit_tag("Delete Todos", :class=>"btn btn-success") %> -->
 			<%end %>
             
 			</div> <!-- well -->
 		</div> <!-- span4 -->
-		<%= link_to "Delete last todo", 'delete' %>
 	</div> <!-- row -->
 </div> <!-- container -->
           
