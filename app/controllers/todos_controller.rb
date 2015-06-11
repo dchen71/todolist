@@ -7,10 +7,9 @@ class TodosController < ApplicationController
   end
   
   def delete #deletes selected todo item
-    Todo.find_by(params[:id]).destroy
+    Todo.find_by(id: params[:id]).destroy
     flash[:success] = "Todo successfully deleted"
     
-
     redirect_to root_url
   end
   
