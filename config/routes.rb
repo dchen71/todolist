@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   delete "delete" => "todos#delete", :as => :delete
-  post 'todos/complete' => 'todos#complete', :via => :post 
+  post 'complete' => 'todos#complete', :via => :post 
   #get 'edit/:id' => 'todos#edit', :as => :edit
   #put 'edit/:id/update' => 'todos#update'
 

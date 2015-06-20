@@ -28,7 +28,7 @@
 				</div>
 			<% end %>
 
-			<%= form_tag("/todos/complete/", :method => "post") do %> <!-- Toggle to strikethrough data -->
+			<%= form_tag("complete/", :method => "post") do %> <!-- Toggle to strikethrough data -->
 			<ul style="list-style-type:none;">
 				<% @todo_items.each do |t| %> 
 					<% if t.completed == true %>
