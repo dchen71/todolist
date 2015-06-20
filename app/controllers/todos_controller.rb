@@ -6,14 +6,30 @@ class TodosController < ApplicationController
     render :index
   end
   
+  def edit #used to help edit an entry
+    @todo = Todo.find(params[:id])
+  end
+
+  def update #updates an entry
+    @todo = Todo.find(params[:id])
+    if @todo.update(todo_params)
+      flash[:success] = "Todo updated"
+      redirect_to root_path
+    else
+      flash[:error] = "Todo cannot be empty"
+      render 'edit'
+    end
+  end
+
   def delete #deletes selected todo item
     Todo.find_by(id: params[:id]).destroy
     flash[:success] = "Todo successfully deleted"
     
     redirect_to root_url
   end
-  
-  def add #add values if valid based on params sent, and sets errors if necessary
+
+
+  def create #add values if valid based on params sent, and sets errors if necessary
     todo = Todo.create(todo_params)
     if !todo.valid?
       flash[:error] = todo.errors.full_messages.join("<br>").html_safe

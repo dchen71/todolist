@@ -20,9 +20,9 @@
 					</div>
 				<% end %>
 
-				<%= form_for @new_todo, :url => {:action => "add"} do |f| %> <!-- Add button -->
+				<%= form_for(@todo) do |f| %> <!-- Edit button -->
 					<%= f.text_field :todo_item %>
-					<%= f.submit "Add todo", class: "btn btn-primary" %>
+					<%= f.submit "Save changes", class: "btn btn-primary" %>
 				<% end %>
 			<hr>
       		</div>
