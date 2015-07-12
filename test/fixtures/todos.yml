@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  todo_item: MyString
+  id: 1
+  todo_item: dog
 
 two:
-  todo_item: MyString
+  id: 2
+  todo_item: cat
+
+three:
+  id: 3
+  todo_item: dogcat

@@ -7,11 +7,11 @@ class TodosController < ApplicationController
   end
   
   def edit #used to help edit an entry
-    @todo = Todo.find(params[:id])
+    @todo = Todo.find_by(id: params[:id])
   end
 
   def update #updates an entry
-    @todo = Todo.find(params[:id])
+    @todo = Todo.find_by(id: params[:id])
     if @todo.update(todo_params)
       flash[:success] = "Todo updated"
       redirect_to root_path
