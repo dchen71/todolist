@@ -3,11 +3,14 @@
 one:
   id: 1
   todo_item: dog
+  completed: false
 
 two:
   id: 2
   todo_item: cat
+  completed: false
 
 three:
   id: 3
   todo_item: dogcat
+  completed: false
